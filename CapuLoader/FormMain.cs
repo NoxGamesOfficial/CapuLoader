@@ -117,8 +117,6 @@ public class FormMain : Form
 
 	private Button buttonFolderBrowser;
 
-	private Label label1;
-
 	private Button buttonInstall;
 
 	private Label labelStatus;
@@ -154,7 +152,7 @@ public class FormMain : Form
 	private ToolStripMenuItem quitToolStripMenuItem;
 
 	private ToolStripMenuItem minimizeToolStripMenuItem;
-    private Label label2;
+    private Button closeButton;
     private Panel panel1;
 
 	[DllImport("Gdi32.dll")]
@@ -810,9 +808,9 @@ public class FormMain : Form
 	private void InitializeComponent()
 	{
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.textBoxDirectory = new System.Windows.Forms.TextBox();
             this.buttonFolderBrowser = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.buttonInstall = new System.Windows.Forms.Button();
             this.labelStatus = new System.Windows.Forms.Label();
             this.contextMenuStripMain = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -832,7 +830,7 @@ public class FormMain : Form
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.closeButton = new System.Windows.Forms.Button();
             this.contextMenuStripMain.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -864,17 +862,6 @@ public class FormMain : Form
             this.buttonFolderBrowser.Text = "..";
             this.buttonFolderBrowser.UseVisualStyleBackColor = false;
             this.buttonFolderBrowser.Click += new System.EventHandler(this.buttonFolderBrowser_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(207, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Capuchin Folder Path:";
             // 
             // buttonInstall
             // 
@@ -1008,9 +995,9 @@ public class FormMain : Form
             this.buttonToggleMods.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonToggleMods.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonToggleMods.ForeColor = System.Drawing.Color.White;
-            this.buttonToggleMods.Location = new System.Drawing.Point(546, 27);
+            this.buttonToggleMods.Location = new System.Drawing.Point(546, 34);
             this.buttonToggleMods.Name = "buttonToggleMods";
-            this.buttonToggleMods.Size = new System.Drawing.Size(112, 54);
+            this.buttonToggleMods.Size = new System.Drawing.Size(112, 47);
             this.buttonToggleMods.TabIndex = 10;
             this.buttonToggleMods.Text = "Disable Mods";
             this.buttonToggleMods.UseVisualStyleBackColor = false;
@@ -1143,16 +1130,21 @@ public class FormMain : Form
             this.panel1.Size = new System.Drawing.Size(2, 275);
             this.panel1.TabIndex = 11;
             // 
-            // label2
+            // closeButton
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(391, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 26);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Source: Monke Mod Manager\r\nDesign: Monke Mod Manager\r\n";
+            this.closeButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.closeButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButton.ForeColor = System.Drawing.Color.White;
+            this.closeButton.Location = new System.Drawing.Point(609, 6);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(49, 22);
+            this.closeButton.TabIndex = 12;
+            this.closeButton.Text = "X";
+            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // FormMain
             // 
@@ -1161,7 +1153,7 @@ public class FormMain : Form
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(671, 383);
             this.ContextMenuStrip = this.contextMenuStrip1;
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listViewMods);
             this.Controls.Add(this.buttonOpenConfig);
@@ -1174,16 +1166,14 @@ public class FormMain : Form
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.buttonUninstallAll);
             this.Controls.Add(this.buttonInstall);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonFolderBrowser);
             this.Controls.Add(this.textBoxDirectory);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.Opacity = 0.98D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Icon = new Icon(System.Reflection.Assembly.GetExecutingAssembly()
-                    .GetManifestResourceStream("CapuLoader.monke.ico"));
             this.Text = "CapuLoader";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
@@ -1203,4 +1193,7 @@ public class FormMain : Form
     {
 
     }
+
+	private void closeButton_Click(object sender, EventArgs e) =>
+		Application.Exit();
 }

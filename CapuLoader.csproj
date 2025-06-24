@@ -21,11 +21,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CapuLoader.monke.ico" LogicalName="CapuLoader.monke.ico">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression.FileSystem" />
