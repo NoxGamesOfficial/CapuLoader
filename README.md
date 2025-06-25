@@ -3,7 +3,7 @@
 
 Welcome to the Capuchin Mod Loader
 
-- Get Statted by Downloading the Release EXE and putting your "Capuchin.exe" on the app, and your ready to go!
+- Get Started by Downloading the Release EXE and putting your "Capuchin.exe" on the app, and your ready to go!
 
 - Source Code from Monke Mod Manager: https://github.com/DeadlyKitenn/MonkeModManager/releases
 - Design from Monke Mod Manager: https://github.com/DeadlyKitenn/MonkeModManager/releases
